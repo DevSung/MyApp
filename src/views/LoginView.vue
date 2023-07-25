@@ -80,9 +80,7 @@ export default {
       // POST 요청으로 로그인 API 호출
       $api.post("member/login", loginData)
           .then(response => {
-            // 로그인 성공 시 응답 처리
             console.log("Login Successful:", response.data);
-            // 로그인 성공 후 추가 작업 가능
           })
           .catch(() => {
             alert("로그인 실패");
