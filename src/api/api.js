@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiInstance = axios.create({
-    baseURL: "https://devsung.koreacentral.cloudapp.azure.com:8003/api",
+    baseURL: "https://dev.koreacentral.cloudapp.azure.com/api",
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json;charset=utf-8',
