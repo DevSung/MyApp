@@ -45,15 +45,14 @@
       <v-btn @click="login()" block="" class="mb-8" color="red" size="large" variant="tonal"> Log In</v-btn>
 
       <v-card-text class="text-center">
-        <a
+        <router-link
             class="text-blue text-decoration-none"
-            href="#"
-            rel="noopener noreferrer"
-            target="_blank"
+            to="/join"
+            target="_self"
         >
           Sign up now
           <v-icon icon="mdi-chevron-right"></v-icon>
-        </a>
+        </router-link>
       </v-card-text>
     </v-card>
   </div>
@@ -72,15 +71,16 @@ export default {
   },
   methods: {
     login() {
-      // 로그인 요청에 필요한 사용자 정보
       const loginData = {
         userId: this.userId,
         password: this.password,
       };
       // POST 요청으로 로그인 API 호출
       $api.post("member/login", loginData)
-          .then(response => {
-            console.log("Login Successful:", response.data);
+          .then(res => {
+            if (res.success) {
+              this.$router.push();
+            }
           })
           .catch(() => {
             alert("로그인 실패");

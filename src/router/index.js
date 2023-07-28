@@ -1,21 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from "@/views/LoginView.vue";
+import JoinView from "@/views/JoinView.vue";
+import LoginView from "@/views/LoginView.vue";
 
 let routes;
 routes = [
   {
     path: '/',
     redirect: 'login',
-    component: Login
+    component: LoginView
   },
   {
     path: '/login',
-    component: Login,
+    component: LoginView
   },
+  {
+    path: '/join',
+    component: JoinView
+  }
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory(),
   routes
 })
 

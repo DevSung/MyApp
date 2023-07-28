@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const apiInstance = axios.create({
-    baseURL: "https://devsung.koreacentral.cloudapp.azure.com:8003/api",
+    // baseURL: "https://devsung.koreacentral.cloudapp.azure.com:8003/api",
+    baseURL: "http://localhost:8003/api",
     timeout: 1000,
     headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -24,6 +25,17 @@ apiInstance.interceptors.request.use(
         // 요청 에러 처리 부분
         return Promise.reject(error);
     }
+);
+
+apiInstance.interceptors.response.use(
+    response => {
+        return response.data;
+    },
+    error => {
+        // 에러 핸들링
+        return Promise.reject(error);
+    }
+
 );
 
 // GET 요청 메소드 추가
