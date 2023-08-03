@@ -28,15 +28,15 @@ apiInstance.interceptors.request.use(
 );
 
 apiInstance.interceptors.response.use(
-    response => {
-        return response.data;
+    res => {
+        return Promise.resolve(res.data); // 응답 데이터를 반환합니다.
     },
     error => {
         // 에러 핸들링
-        return Promise.reject(error);
+        return Promise.reject(error.response.data); // 에러 데이터만 반환합니다.
     }
-
 );
+
 
 // GET 요청 메소드 추가
 export const get = (url, config = {}) => {

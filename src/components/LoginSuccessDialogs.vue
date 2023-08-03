@@ -3,10 +3,10 @@
     <v-dialog v-model="dialog" width="auto">
       <v-card>
         <v-card-text>
-          {{ message }}
+          회원가입 성공 로그인 페이지로 이동합니다.
         </v-card-text>
         <v-card-actions>
-          <v-btn color="primary" block="" @click="dialog = false">확인</v-btn>
+          <v-btn color="primary" block="" @click="success()">확인</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -15,10 +15,10 @@
 
 <script>
 export default {
-  name: "ErrorAlert",
+  name: "LoginSuccessDialogs",
   props: {
-    message: {
-      type: String,
+    isShow: {
+      type: Boolean,
       required: true,
     },
   },
@@ -27,5 +27,11 @@ export default {
       dialog: true,
     }
   },
-};
+  methods: {
+    success() {
+      this.$router.push('/login');
+    }
+  }
+
+}
 </script>
