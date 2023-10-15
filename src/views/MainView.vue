@@ -1,5 +1,4 @@
 <template>
-
     <div id="main">
       <h1 style="color: black">
         Vuetify
