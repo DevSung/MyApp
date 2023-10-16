@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie } from "./cookie"; // cookie.js 파일에서 함수 import
 
 const apiInstance = axios.create({
     // baseURL: "https://devsung.koreacentral.cloudapp.azure.com:8003/api",
@@ -14,9 +15,9 @@ apiInstance.interceptors.request.use(
     config => {
         // 로그인과 회원가입 요청에서는 토큰을 추가하지 않도록 설정
         if (config.url !== "/login" && config.url !== "/join") {
-            const token = localStorage.getItem("accessToken");
+            const token = getCookie("accessToken");
             if (token) {
-                config.headers.Authorization = `Bearer ${token}`;
+                config.headers.Authorization = `${token}`;
             }
         }
         return config;

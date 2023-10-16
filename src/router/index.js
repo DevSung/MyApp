@@ -1,5 +1,7 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import LoginView from "@/views/LoginView.vue";
+import JoinView from "@/views/JoinView.vue";
+import MainView from "@/views/MainView.vue";
 
 let routes;
 routes = [
@@ -14,12 +16,11 @@ routes = [
     },
     {
         path: '/join',
-        component: () => import('@/views/JoinView')
+        component: JoinView
     },
     {
         path: '/main',
-        // component: MainView
-        component: () => import('@/views/MainView')
+        component: MainView
     }
 ];
 

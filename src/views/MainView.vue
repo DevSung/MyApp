@@ -1,20 +1,22 @@
 <template>
-    <div id="main">
-      <h1 style="color: black">
-        Vuetify
-      </h1>
-      <h4 class="subheading">
-        Build your application today!
-      </h4>
-    </div>
+  <div id="main">
+    <v-btn @click="test()" :block="true" class="mb-8" color="red" size="large" variant="tonal">테스트</v-btn>
+  </div>
 
 </template>
 
-<style>
-#main {
-  width:100vw;
-  height:100vw;
-  overflow:hidden;
-  margin:0 auto;
+<script>
+import {getCookie} from "@/api/cookie";
+
+export default {
+  name: 'MainView',
+
+  methods: {
+    test() {
+      console.log(getCookie("accessToken"))
+    }
+  }
+
 }
-</style>
+
+</script>

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-      <Header v-if="showHeader"/>
+    <Header v-if="showHeader"/>
+    <main>
       <router-view/>
+    </main>
   </div>
 </template>
 
@@ -44,4 +46,6 @@ html, body {
   background-size: cover; /* 이미지를 화면에 맞게 조절 */
   background-repeat: no-repeat; /* 이미지 반복 비활성화 */
 }
+
+
 </style>
